@@ -90,12 +90,22 @@ namespace RPCServer.Data
                     Servico = "Servico C"
                 });
             modelBuilder.Entity<Admin>().HasKey(s => s.Username);
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente
+                {
+                    ClienteId = "Cl_0001",
+                    Password = "1234",
+                    Servico = "Servico A",
+                    Idmota = 1
+                }
+                );
         }
     }
 
     public class Cliente
     {
         public string ClienteId { get; set; }
+        public string Password { get; set; }
         public string? Servico { get; set; }
         public int Idmota { get; set; }
         public Servico? ServicoId { get; set; }
